@@ -6,13 +6,14 @@ Aplicación desarrollada con **Vite + React** que consume una API de películas 
 
 - ⚛️ **React** – Librería principal para la interfaz de usuario  
 - ⚡ **Vite** – Entorno de desarrollo rápido  
-- 🌐 **Axios / Fetch API** – Para consumir la API de películas  
-- 🎨 **CSS / Tailwind / Styled Components** – (dependiendo de lo que uses)  
+- 🌐 **Fetch API** – Para consumir la API de películas  
+- 🎨 **CSS / React Bootstrap / Styled Components**  
 
 ## 🧩 Características
 
 ✅ Buscar películas por nombre  
 ✅ Ver detalles e información adicional  
+✅ Crear secciones para cada categoria   
 ✅ Diseño responsive  
 ✅ Rápido y optimizado con Vite  
 
@@ -22,10 +23,10 @@ Sigue estos pasos para correr el proyecto localmente:
 
 bash
 # 1️⃣ Clonar el repositorio
-git clone https://github.com/TU_USUARIO/TU_REPO.git
+git clone https://github.com/JorgeUrbina20/api-pelicula.git
 
 # 2️⃣ Entrar en la carpeta del proyecto
-cd TU_REPO
+cd api-pelicula
 
 # 3️⃣ Instalar dependencias
 npm install

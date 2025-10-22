@@ -1,0 +1,13 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+.navbar-text:hover{
+    text-shadow:1px 10px 8px green;
+}
+.columna-principal{
+    overflow: auto;
+    height: 50rem;
+}

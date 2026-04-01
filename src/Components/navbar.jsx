@@ -1,68 +1,61 @@
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import Image from 'react-bootstrap/Image';
+import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import imgLogo from "../assets/icono-pelicula-cine.png";
-import { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
 
-function NavBar() {
+export default function NavBar({ darkMode, setDarkMode }) {
   const [pelicula, setPelicula] = useState("");
   const navigate = useNavigate();
 
-  function obtenerPelicula(e) {
-    setPelicula(e.target.value);
-  }
-
-  function buscarPeliculas(e) {
+  const handleSearch = (e) => {
     e.preventDefault();
     if (!pelicula.trim()) return;
+
     navigate(`/buscar/${encodeURIComponent(pelicula)}`);
-    setPelicula(""); //limpia el input
-  }
+    setPelicula("");
+  };
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container fluid>
-        <Navbar.Brand as={NavLink} to="/" className="m-0 p-0" style={{ minWidth: "10%", maxWidth: "20%" }}>
-          <Image
-            src={imgLogo}
-            alt="Logo de la Aplicacion pelicula-Api"
-            style={{
-              minWidth: "80%",
-              maxWidth: "100%",
-              minHeight: "3rem",
-              maxHeight: "4rem",
-              objectFit: "contain"
-            }}
-          />
-        </Navbar.Brand>
+    <header className="border-b bg-white dark:bg-gray-900 dark:border-gray-700">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
 
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav className="me-auto my-2 my-lg-0 fs-5" style={{ maxHeight: "130px" }} navbarScroll>
-            <Nav.Link as={NavLink} to="/Accion">Acción</Nav.Link>
-            <Nav.Link as={NavLink} to="/Comedia">Comedia</Nav.Link>
-            <Nav.Link as={NavLink} to="/Terror">Terror</Nav.Link>
-          </Nav>
+        {/* Logo */}
+        <NavLink to="/">
+          <img src={imgLogo} alt="logo" className="h-10" />
+        </NavLink>
 
-          <Form className="d-flex" onSubmit={buscarPeliculas}>
-            <Form.Control
-              onChange={obtenerPelicula}
+        {/* Links */}
+        <nav className="hidden md:flex gap-6 text-gray-700 dark:text-gray-300">
+          <NavLink to="/accion" className="hover:text-blue-500">Acción</NavLink>
+          <NavLink to="/comedia" className="hover:text-blue-500">Comedia</NavLink>
+          <NavLink to="/terror" className="hover:text-blue-500">Terror</NavLink>
+        </nav>
+
+        {/* Actions */}
+        <div className="flex items-center gap-2">
+
+          {/* Search */}
+          <form onSubmit={handleSearch} className="flex gap-2">
+            <input
               value={pelicula}
-              type="search"
-              placeholder="Buscar película"
-              className="me-2"
-              aria-label="Search"
+              onChange={(e) => setPelicula(e.target.value)}
+              placeholder="Buscar..."
+              className="border px-3 py-1 rounded dark:bg-gray-800 dark:border-gray-600"
             />
-            <Button variant="outline-primary" type="submit">Buscar</Button>
-          </Form>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+            <button className="bg-blue-600 text-white px-3 py-1 rounded">
+              Buscar
+            </button>
+          </form>
+
+          {/* Dark mode */}
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="ml-2 px-2 py-1 border rounded dark:border-gray-600"
+          >
+            {darkMode ? "☀️" : "🌙"}
+          </button>
+
+        </div>
+      </div>
+    </header>
   );
 }
-
-export default NavBar;

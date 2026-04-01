@@ -1,22 +1,28 @@
-import Col from "react-bootstrap/Col";
-import Card from 'react-bootstrap/Card';
-
-export default function Columna(prop) {
+export default function Columna({ img, title, description }) {
   return (
-    <Col xs={12} sm={6} md={3} className="d-flex justify-content-center align-items-stretch mb-4">
-      <Card style={{ width: '18rem', height: '100%' }}>
-        <Card.Img 
-          variant="top" 
-          src={prop.img} 
-          style={{ height: '27rem', objectFit: 'contain' }} // altura fija y recorte uniforme
+    <div className="group bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300">
+
+      {/* Imagen */}
+      <div className="overflow-hidden">
+        <img
+          src={img || "/no-image.png"}
+          alt={title}
+          className="w-full h-72 object-cover group-hover:scale-110 transition-transform duration-300"
         />
-        <Card.Body className="d-flex flex-column">
-          <Card.Title>{prop.title}</Card.Title>
-          <Card.Text className="flex-grow-1">
-            {prop.description}
-          </Card.Text>
-        </Card.Body>
-      </Card>
-    </Col>
+      </div>
+
+      {/* Contenido */}
+      <div className="p-4 flex flex-col gap-2">
+
+        <h2 className="font-semibold text-sm text-gray-900 dark:text-white line-clamp-1">
+          {title}
+        </h2>
+
+        <p className="text-xs text-gray-600 dark:text-gray-400 line-clamp-3">
+          {description}
+        </p>
+
+      </div>
+    </div>
   );
 }

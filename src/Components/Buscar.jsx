@@ -9,7 +9,7 @@ export default function Buscar() {
   const [peliculas, setPeliculas] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const key = "1cdcdf9a80ee2d74daea7736470544c3";
+  const key = import.meta.env.VITE_TMDB_API_KEY;
 
   useEffect(() => {
     const cargarPeliculas = async () => {

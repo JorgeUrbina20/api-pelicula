@@ -100,7 +100,7 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para
 
 **Jorge Nuñez**  
 - GitHub: [@JorgeUrbina20](https://github.com/JorgeUrbina20)
-- LinkedIn: [Jorge Nuñez] (https://www.linkedin.com/in/jorge-nu%C3%B1ez-a92811344?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
+- LinkedIn: [Jorge Nuñez](https://www.linkedin.com/in/jorge-nu%C3%B1ez-a92811344?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
 
 ---
 
